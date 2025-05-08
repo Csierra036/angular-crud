@@ -1,3 +1,9 @@
 import { Routes } from '@angular/router';
-
-export const routes: Routes = [];
+import { TableBasicExample } from './ui/table/table.component';
+export const routes: Routes = [
+    { 
+        path: 'home',
+        component: TableBasicExample,
+        title: 'Inicio'
+      },
+];

@@ -1,0 +1,12 @@
+/* En tu archivo CSS/SCSS del componente */
+.table-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 5em;
+}
+
+.bottom-container{
+  margin-top: 2em;
+  text-align: center;
+  gap: 100px;
+}
