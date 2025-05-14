@@ -1,29 +1,31 @@
-<div class="buttom-container">
-    <button class="buttom-item">Add User</button>
-</div>
+<div class="max-w-4xl mx-auto p-4">
+  <div class="flex justify-end mb-4">
+    <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+      Add User
+    </button>
+  </div>
 
-<div class="table-container">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 compact-table" >
-      <!-- Name Column -->
-      <ng-container matColumnDef="fullname">
-        <th mat-header-cell *matHeaderCellDef> fullname </th>
-        <td mat-cell *matCellDef="let element"> {{element.fullname}} </td>
-      </ng-container>
-    
-      <!-- Weight Column -->
-      <ng-container matColumnDef="phone_number">
-        <th mat-header-cell *matHeaderCellDef> phone number</th>
-        <td mat-cell *matCellDef="let element"> {{element.phone_number}} </td>
-      </ng-container>
-    
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="rol">
-        <th mat-header-cell *matHeaderCellDef> Rol </th>
-        <td mat-cell *matCellDef="let element"> {{element.rol}} </td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white border border-gray-200 text-sm text-left text-gray-700 rounded shadow">
+      <thead class="bg-gray-100 text-gray-600 uppercase">
+        <tr>
+          <th class="px-4 py-2 border-b">Fullname</th>
+          <th class="px-4 py-2 border-b">Phone Number</th>
+          <th class="px-4 py-2 border-b">Rol</th>
+          <th class="px-4 py-2 border-b">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let element of dataSource" class="hover:bg-gray-50">
+          <td class="px-4 py-2 border-b">{{ element.fullname }}</td>
+          <td class="px-4 py-2 border-b">{{ element.phone_number }}</td>
+          <td class="px-4 py-2 border-b">{{ element.rol }}</td>
+          <div class="flex space-x-2">
+            <button class="px-4 py-2 bg-orange-400 text-white rounded hover:bg-orange-500 transition">Edit</button>
+            <button (click)="deleteUser(element.id) "class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition">Delete</button>
+          </div>
+        </tr>
+      </tbody>
     </table>
+  </div>
 </div>
-
