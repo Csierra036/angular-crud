@@ -17,6 +17,13 @@ export interface Worker {
   email: string
 }
 
+export interface EditWorker{
+  email: string;
+  fullname: string;
+  phone_number: string;
+  rol: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -34,5 +41,9 @@ export class ServiceService {
 
   createUser(worker: CreateWorker){
     return this.http.post<Worker>('http://localhost:8000/worker', worker);
+  }
+
+  editUser(id: string, worker: EditWorker){
+    return this.http.put<Worker>(`http://localhost:8000/worker/${id}`, worker)
   }
 }
